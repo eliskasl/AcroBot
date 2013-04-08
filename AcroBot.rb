@@ -76,7 +76,7 @@ bot = Cinch::Bot.new do
    c.prefix = /^:/
   end
 
-  on :message, /^:([\w\-\_]+)=(.+)/ do |m, abbrev, desc|
+  on :message, /^:([\w\-\_]+)\s?=\s?(.+)/ do |m, abbrev, desc|
     save_abbrev(abbrev, desc)
     nick = m.channel? ? m.user.nick+": " : nil
     m.reply("#{nick}Thanks! [#{abbrev.downcase}=#{desc}]")
